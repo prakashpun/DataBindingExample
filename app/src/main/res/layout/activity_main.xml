@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="user"
+            type="com.tuts.prakash.databinding.model.User" />
+        <variable name="handler"
+            type="com.tuts.prakash.databinding.handlers.MyHandlers"/>
+
+    </data>
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding16"
+        tools:context=".MainActivity"
+        tools:showIn="@layout/activity_main">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.name, default=@string/placeholder_name}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{user.email,default=@string/placeholder_email}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn"
+            android:onClick="@{(view) -> handler.btnClick(view, user)}" />
+
+    </LinearLayout>
+</layout>
